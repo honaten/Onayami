@@ -1,0 +1,21 @@
+databases:
+  - name: Onayami Hiroba_DB
+    databaseName: onayami_hiroba_db
+    user: Onayami Hiroba
+    region: singapore
+
+services:
+  - type: web
+    name: Onayami Hiroba
+    env: ruby
+    region: singapore
+    plan: free
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: Onayami Hiroba_DB
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
