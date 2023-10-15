@@ -16,5 +16,5 @@ Tag.create([
 ])
 
 User.create!(
-  email: 'a@a', password: 'aaaaaa', admin: '管理者', name: 'わー'
+  email: 'a@b', password: 'aaaaaa', admin: '管理者', name: 'わー'
 )
