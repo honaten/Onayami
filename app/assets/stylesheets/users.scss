@@ -1,3 +1,19 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.MypageToToppage {
+    position:fixed;
+    left:50px;
+    bottom:50px;
+    transition:1s;
+    opacity:0.7;   
+    }
+
+.MypageToNew {
+    position:fixed;
+    right:50px;
+    bottom:50px;
+    transition:1s;
+    opacity:0.7;
+}    
+

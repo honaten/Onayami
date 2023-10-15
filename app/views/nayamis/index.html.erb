@@ -1,10 +1,23 @@
-<h1>nayamiのindex</h1>
-<h3>一覧ページ</h3>
-<%= link_to "新規投稿へ", new_nayami_path %>
+<div class="header-list">
+    <div class="About">
+     <%= link_to "About", nayamis_explanation_path %>
+    </div>
+    <div class="Signup">
+     <% if user_signed_in? %>
+      <%= link_to "Log out", destroy_user_session_path %>
+     <% else %>
+      <%=link_to "Sign up", new_user_registration_path %>
+      <%= link_to "Log in", new_user_session_path %>
+     <% end %>
+    </div>
+</div>
+
 <div class="nayamis-container">
+    <div class="Mypage01">
     <% if user_signed_in? %>
         <%= link_to "マイページへ", user_path(current_user.id) %>
     <% end %>
+    </div>
 
     <% @nayamis.each do |t| %>
         <%= image_tag t.user.image_url, size: "250x200" if t.user.image? %>

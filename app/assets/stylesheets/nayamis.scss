@@ -1,3 +1,40 @@
 // Place all the styles related to the nayamis controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.header-list {
+    color: #20b2aa;
+    font-size: 25px;
+    font-family: 'Cabin Sketch', sans-serif;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    }
+
+  .About {
+    
+  }
+
+  .Signup {
+    
+  }
+
+  .Signup a{
+    margin: 10px;
+  }
+
+.header-list a {
+    text-decoration: none;
+}
+
+.header-list a:visited, a:active {
+    color: #20b2aa;
+}
+
+.Mypage01 {
+    position:fixed;
+    right:50px;
+    bottom:50px;
+    transition:1s;
+    opacity:0.7;
+    }
+

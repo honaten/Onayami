@@ -8,8 +8,6 @@
   <%= link_to "編集する", edit_user_registration_path %>
 <% end %>
 
-<%= link_to "新規投稿へ", new_nayami_path %>
-
 <h2>ユーザーの投稿一覧</h2>
 <% @user.nayamis.each do |t| %>
   <%= t.user.name %>
@@ -22,4 +20,10 @@
   <%= t.body %>
 <% end %>
 
-<%= link_to "なやみ広場に戻る", nayamis_path %>
+<div class="MypageToToppage">
+  <%= link_to "なやみ広場に戻る", nayamis_path %>
+</div>
+
+<div class="MypageToNew">
+  <%= link_to "新規投稿へ", new_nayami_path %>
+</div>
