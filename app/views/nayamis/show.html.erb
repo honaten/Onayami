@@ -1,60 +1,64 @@
-<h1>nayamiの詳細</h1>
-<h3>Nayami詳細</h3>
-<div class="nayami_show">
-  <p><%= @nayami.body %></p>
-  <p><%= @nayami.created_at %></p>
-    <% @nayami.tags.each do |tag| %>
-      <span><%= tag.name %></span>
-    <% end %>
-    <% if user_signed_in? %>
-      <% if current_user.already_liked?(@nayami) %>
-        <%= button_to nayami_like_path(@nayami), method: :delete do %>
+<div class="nayami_show_box">
+  <div class="nayami_show">
+    <span style="font-size:1.5em;">
+      <p><%= @nayami.body %></p>
+    </span>
+    <p><%= @nayami.created_at %></p>
+      <% @nayami.tags.each do |tag| %>
+        <span><%= tag.name %></span>
+      <% end %>
+      <% if user_signed_in? %>
+        <% if current_user.already_liked?(@nayami) %>
+          <%= button_to nayami_like_path(@nayami), method: :delete do %>
 
-            <i class="fas fa-heart"></i><%= @nayami.likes.count %>
-          
+              <i class="fas fa-heart"></i><%= @nayami.likes.count %>
+            
+          <% end %>
+        <% else %>
+          <%= button_to nayami_likes_path(@nayami), method: :post do %>
+          <i class="far fa-heart"></i><%= @nayami.likes.count %>
+          <% end %>
         <% end %>
       <% else %>
-        <%= button_to nayami_likes_path(@nayami), method: :post do %>
-        <i class="far fa-heart"></i><%= @nayami.likes.count %>
+          <i class="far fa-heart"></i><%= @nayami.likes.count %>
+      <% end %>
+  　<%= link_to "編集する", edit_nayami_path(@nayami.id) %>
+  <% if current_user.admin == "管理者" || current_user.id == @nayami.user_id %>
+    <%= button_to "削除する", nayami_path(@nayami.id), method: :delete %>
+    <% end %>
+      
+  </div>
+
+  <div class="comment-wrapper">
+    <p>コメント一覧</p>
+    <% @comments.each do |c| %>
+      <div>
+        <%= c.user.name unless c.user.blank? %>
+        <br>
+        <%= c.content %>
+      </div>
+        <br>
+    <% end %>
+
+    <% if user_signed_in? %>
+      <%= form_with(model: [@nayami, @comment], local: true) do |f| %>
+        <%= f.text_area :content %>
+        <%= button_tag type: "submit" do %>
+          <i class="far fa-comments"></i> コメントする
         <% end %>
       <% end %>
-    <% else %>
-        <i class="far fa-heart"></i><%= @nayami.likes.count %>
     <% end %>
- 　<%= link_to "編集する", edit_nayami_path(@nayami.id) %>
- <% if current_user.admin == "管理者" || current_user.id == @nayami.user_id %>
-  <%= button_to "削除する", nayami_path(@nayami.id), method: :delete %>
-  <% end %>
-    
-</div>
+  </div>
 
-<div class="comment-wrapper">
-  <p>コメント一覧</p>
-  <% @comments.each do |c| %>
-    <div>
-      <%= c.user.email unless c.user.blank? %>
-      <br>
-      <%= c.content %>
-    </div>
-      <br>
+  <h2>いいねしたユーザー</h2>
+  <% @nayami.liked_users.each do |user| %>
+    <li><%= user.name %></li>
+
   <% end %>
 
-  <% if user_signed_in? %>
-    <%= form_with(model: [@nayami, @comment], local: true) do |f| %>
-      <%= f.text_area :content %>
-      <%= button_tag type: "submit" do %>
-        <i class="far fa-comments"></i> コメントする
-      <% end %>
-    <% end %>
-  <% end %>
-</div>
-
-<h2>いいねしたユーザー</h2>
-<% @nayami.liked_users.each do |user| %>
-  <li><%= user.email %></li>
-
-<% end %>
-
-<div class="Toppage02">
- <%= link_to "Nayami一覧に戻る", nayamis_path %>
+  <div class="NewToToppage">
+          <%= link_to nayamis_path  do %>
+              <%= image_tag 'ReturnTop.png', class:'icon05' %>
+          <% end %>
+  </div>
 </div>
