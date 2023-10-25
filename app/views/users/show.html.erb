@@ -35,7 +35,10 @@
          <%= t.user.name %><br>
          <span style="font-size:1.5em;">
           <%= t.body %><br>
-         </span><br>
+          </span><br>
+          <div class="shashin">
+                      <%= image_tag t.image_url, size: "250x200" if t.image? %>
+          </div>
         <% end %>
       </p>
     </div>
@@ -47,6 +50,9 @@
           <%= t.user.name %><br>
           <span style="font-size:1.5em;">
             <%= t.body %><br>
+            <div class="shashin">
+                    <%= image_tag t.image_url, size: "250x200" if t.image? %>
+            </div>
           </span><br>
         <% end %>
       </p>
