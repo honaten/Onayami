@@ -1,14 +1,35 @@
-悩み広場へようこそ！<br>
-
-ここは、悩みを吐き出せる場所。<br>
-言葉にすることで、ちょっと楽になったり<br>
-似たような悩みを持った人と交流したり<br>
-ほかの人の悩みを知って気づきを得たり<br>
-
-悩みの尽きない世界を生きる皆が
-
-さて、悩み広場を優しい場所にするために、次の約束を守ってね！<br>
-1　自分に優しく、人に優しく
-2　
-
-<%= link_to "Nayami一覧に戻る", nayamis_path %>
+<div class="aboutpage">
+    <div class="aboutnaiyou">
+        <p class="aboutnaiyou0">
+            <span style="font-size:1.5em;">
+                悩み広場へようこそ！<br>
+            </span>
+            <br>
+            ここは、悩みを吐き出せる場所。<br>
+            言葉にすることで、ちょっと楽になったり<br>
+            似たような悩みを持った人と交流したり<br>
+            ほかの人の悩みを知って気づきを得たり…<br>
+            <br>
+            悩みの尽きないあなたの居場所になりますように。<br>
+            <br>
+            nayamo:reでは、次の約束を守ってね！<br>
+            <br>
+            <span style="font-size:1.2em;">
+            1　自分に優しく、人に優しく
+            </span><br>
+            自分の悩みも、誰かの悩みも、優しく見つめよう。<br>
+            <br>
+            <span style="font-size:1.2em;">
+            2　ひっそりと使おう
+            </span><br>
+            特定されるような名前、アイコン、画像の投稿は控えてね！<br>
+        </p>
+    </div>    
+    
+    <div class="AboutToTop">
+        <%= link_to nayamis_path do %>
+            <%= image_tag 'shoes.png', class:'icon04' %>
+            <span class="icon_abouttotop_guide">なや森へ</span>
+        <% end %>
+    </div>
+</div>
