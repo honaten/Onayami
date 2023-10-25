@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .header-list {
+    position: fixed;
     color: #20b2aa;
     font-size: 25px;
     font-family: 'Cabin Sketch', sans-serif;
@@ -35,6 +36,84 @@
     right:50px;
     bottom:50px;
     transition:1s;
-    opacity:0.7;
-    }
+}
 
+.nayami:nth-child(odd) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  position: relative;
+  margin: 2em 250px 2em 50%;
+  padding: 8px 15px;
+  background: #fff0c6;
+  border-radius: 30px;
+}
+
+.nayami:nth-child(even) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  position: relative;
+  margin: 2em 60% 2em 100px;
+  padding: 8px 15px;
+  background: #fff0c6;
+  border-radius: 30px;
+}
+
+.nayami:before{font-family: FontAwesome;
+  content: "\f111";
+  position: absolute;
+  font-size: 15px;
+  left: -40px;
+  bottom: 0;
+  color: #8c7023;
+}
+.nayami:after{
+  font-family: FontAwesome;
+  content: "\f111";
+  position: absolute;
+  font-size: 23px;
+  left: -23px;
+  bottom: 0;
+  color: #fff0c6;
+}
+.nayami p {
+  margin: 0; 
+  padding: 0;
+}
+
+.nayami {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-top: 20px;
+}
+
+.toppage {
+  background-image: url("Toppage_back.jpg");
+  height: 100vh;
+}
+
+.icon01 {
+  z-index: 10;
+  width: 200px;
+}
+
+.Mypage01:hover .icon_mypage_guide {
+  display: inline;
+}
+
+.icon_mypage_guide {
+  position   : absolute;
+  display: none;
+  padding: 2px;
+  color: aliceblue;
+  border-radius: 5px;
+  background-color:pink;
+  width:100px;
+  top: 50px;
+  left: 0px;
+  font-size: 12px;
+  text-align: center;
+}
